@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSwitch : MonoBehaviour
 {
-    private Vector3 Offset = new Vector3(0, 0, -10f);
+    private Vector3 Offset = new Vector3(0, 2f, -10f);
     private Vector3 Velocity = Vector3.zero;
     private float SmoothTime = 0.20f;
     private bool PlayerGatoActive = true;
@@ -27,16 +27,16 @@ public class PlayerSwitch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
             SwitchPlayer();
 
-        if (PlayerGatoActive)
-        {
-            Vector3 TargetPosition = TargetGato.position + Offset;
-            transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref Velocity, SmoothTime);
-        }
-        else
-        {
-            Vector3 TargetPosition = TargetHumana.position + Offset;
-            transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref Velocity, SmoothTime);
-        }
+        //if (PlayerGatoActive)
+        //{
+        //    Vector3 TargetPosition = TargetGato.position + Offset;
+        //    transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref Velocity, SmoothTime);
+        //}
+        //else
+        //{
+        //    Vector3 TargetPosition = TargetHumana.position + Offset;
+        //    transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref Velocity, SmoothTime);
+        //}
     }
 
     public void SwitchPlayer()
@@ -52,6 +52,19 @@ public class PlayerSwitch : MonoBehaviour
             PlayerGato.enabled = true;
             PlayerHumana.enabled = false;
             PlayerGatoActive = true;
+        }
+    }
+    private void LateUpdate()
+    {
+        if (PlayerGatoActive)
+        {
+            Vector3 TargetPosition = TargetGato.position + Offset;
+            transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref Velocity, SmoothTime);
+        }
+        else
+        {
+            Vector3 TargetPosition = TargetHumana.position + Offset;
+            transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref Velocity, SmoothTime);
         }
     }
 }

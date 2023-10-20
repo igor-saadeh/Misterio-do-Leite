@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Botao : MonoBehaviour
+public class DoorController : MonoBehaviour
 {
-    static bool IsEnabled = false;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +12,6 @@ public class Botao : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
     {
         
     }

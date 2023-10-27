@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHumanaController : MonoBehaviour
 {
-    private float RunSpeed = 5f; //10
+    private float RunSpeed = 10f; //10
     //private float JumpingPower = 25f; //20
     private float HorizontalMove;
     private bool IsFacingRight = true;
@@ -27,6 +27,8 @@ public class PlayerHumanaController : MonoBehaviour
     {
         HorizontalMove = Input.GetAxisRaw("Horizontal");
         Flip();
+
+
     }
 
     private void FixedUpdate()

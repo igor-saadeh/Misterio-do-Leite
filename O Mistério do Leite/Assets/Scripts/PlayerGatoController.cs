@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerGatoController : MonoBehaviour
 {
-    private float RunSpeed = 10f; //10
+    private float RunSpeed = 15f; //10
     private float JumpingPower = 25f; //20    
     private float HorizontalMove;
     private bool IsFacingRight = true;
@@ -14,7 +14,6 @@ public class PlayerGatoController : MonoBehaviour
     [SerializeField] private Transform CeilingCheck;
     [SerializeField] private LayerMask GroundLayer;
     [SerializeField] private BoxCollider2D bc;
-
 
     // Start is called before the first frame update
     void Start()
@@ -36,21 +35,19 @@ public class PlayerGatoController : MonoBehaviour
     private void FixedUpdate()
     {
         if (IsGrounded() || !IsGrounded() && !rb.IsTouchingLayers(GroundLayer))
-        rb.velocity = new Vector2(HorizontalMove * RunSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(HorizontalMove * RunSpeed, rb.velocity.y);
     }
 
     private bool IsGrounded()
     {
-        //return Physics2D.OverlapCircle(GroundCheck.position, 0.2f, GroundLayer);
         //verifica se personagem está no chão
         return Physics2D.OverlapCircle(GroundCheck.position, 0.2f, GroundLayer);
     }
 
     private bool IsTouchingCeiling()
     {
-        return Physics2D.OverlapCircle(CeilingCheck.position, 0.8f, GroundLayer);
+        return Physics2D.OverlapCircle(CeilingCheck.position, 0.5f, GroundLayer);
     }
-
 
     private void Flip()
     {

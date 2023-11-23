@@ -8,13 +8,14 @@ public class PlayerHumanaController : MonoBehaviour
     //private float JumpingPower = 25f; //20
     private float HorizontalMove;
     private bool IsFacingRight = true;
+    private bool IsInteracting = false;
 
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform GroundCheck;
-    [SerializeField] private Transform CeilingCheck;
-    [SerializeField] private LayerMask GroundLayer;
-    [SerializeField] private BoxCollider2D bc;
-    [SerializeField] private CircleCollider2D cc;
+    //[SerializeField] private Transform GroundCheck;
+    //[SerializeField] private Transform CeilingCheck;
+    //[SerializeField] private LayerMask GroundLayer;
+    //[SerializeField] private BoxCollider2D bc;
+    //[SerializeField] private CircleCollider2D cc;
 
     // Start is called before the first frame update
     void Start()
@@ -25,15 +26,34 @@ public class PlayerHumanaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HorizontalMove = Input.GetAxisRaw("Horizontal");
+        //HorizontalMove = Input.GetAxisRaw("Horizontal");
+        GetInput();
         Flip();
-
-
     }
 
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(HorizontalMove * RunSpeed, rb.velocity.y);
+    }
+
+    private void GetInput()
+    {
+        HorizontalMove = Input.GetAxisRaw("Horizontal");
+        if (Input.GetKey(KeyCode.W))
+        {
+            IsInteracting = true;
+            Debug.Log("W esta pressionado");
+        }
+        else
+        {
+            IsInteracting = false;
+            Debug.Log("W nao esta pressionado");
+        }
+    }
+
+    public bool IsInteractingPressed()
+    {
+        return IsInteracting;
     }
     private void Flip()
     {

@@ -9,7 +9,8 @@ public class DoorBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerHumana"))
             gameObject.SetActive(false);
-      //  else
-      //      gameObject.SetActive(true);
+        //  else
+        //      gameObject.SetActive(true);
+        //collision.gameObject.GetComponent<LayerMask>();
     }
 }

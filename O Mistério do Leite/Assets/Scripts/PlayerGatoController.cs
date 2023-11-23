@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerGatoController : MonoBehaviour
 {
     private float RunSpeed = 15f; //10
-    private float JumpingPower = 25f; //20    
+    private float JumpingPower = 20f; //20    
     private float HorizontalMove;
     private bool IsFacingRight = true;
 

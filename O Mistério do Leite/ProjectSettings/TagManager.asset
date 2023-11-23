@@ -3,18 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PlayerHumana
+  - PlayerGato
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
   - Ground
   - Player
-  - 
-  - 
+  - Player_Humana
+  - Box
   - 
   - 
   - 

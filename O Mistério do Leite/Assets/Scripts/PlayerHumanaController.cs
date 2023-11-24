@@ -51,6 +51,11 @@ public class PlayerHumanaController : MonoBehaviour
         return IsInteracting;
     }
 
+    public bool IsUsingStairs()
+    {
+        return Input.GetKeyUp(KeyCode.W);
+    }
+
     private void Flip()
     {
         if (IsFacingRight && HorizontalMove < 0 || !IsFacingRight && HorizontalMove > 0)

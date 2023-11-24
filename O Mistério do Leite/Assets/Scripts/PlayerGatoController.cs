@@ -12,7 +12,7 @@ public class PlayerGatoController : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform GroundCheck;
-    [SerializeField] private Transform CeilingCheck;
+    //[SerializeField] private Transform CeilingCheck;
     [SerializeField] private LayerMask GroundLayer;
     [SerializeField] private BoxCollider2D bc;
     
@@ -27,7 +27,7 @@ public class PlayerGatoController : MonoBehaviour
     {
         HorizontalMove = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && IsGrounded() && !IsTouchingCeiling())
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, JumpingPower);
             GetComponent<Animator>().SetBool("IsJumping", true);
@@ -55,10 +55,10 @@ public class PlayerGatoController : MonoBehaviour
         return Physics2D.OverlapCircle(GroundCheck.position, 0.2f, GroundLayer);
     }
 
-    private bool IsTouchingCeiling()
-    {
-        return Physics2D.OverlapCircle(CeilingCheck.position, 0.5f, GroundLayer);
-    }
+    //private bool IsTouchingCeiling()
+    //{
+    //    return Physics2D.OverlapCircle(CeilingCheck.position, 0.5f, GroundLayer);
+    //}
 
     private void Flip()
     {

@@ -17,7 +17,7 @@ public class DoorStairBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsPlayerOnTrigger && PlayerH.IsInteractingPressed())
+        if (IsPlayerOnTrigger && PlayerH.IsUsingStairs())
         {
             PlayerH.gameObject.transform.position = DoorStair.position;
         }

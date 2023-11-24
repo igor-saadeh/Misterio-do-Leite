@@ -40,21 +40,16 @@ public class PlayerHumanaController : MonoBehaviour
     {
         HorizontalMove = Input.GetAxisRaw("Horizontal");
         if (Input.GetKey(KeyCode.W))
-        {
             IsInteracting = true;
-            Debug.Log("W esta pressionado");
-        }
         else
-        {
             IsInteracting = false;
-            Debug.Log("W nao esta pressionado");
-        }
     }
 
     public bool IsInteractingPressed()
     {
         return IsInteracting;
     }
+
     private void Flip()
     {
         if (IsFacingRight && HorizontalMove < 0 || !IsFacingRight && HorizontalMove > 0)

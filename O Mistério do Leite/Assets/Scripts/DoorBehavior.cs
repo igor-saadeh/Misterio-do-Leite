@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class DoorBehavior : MonoBehaviour
 {
-  
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("PlayerHumana"))
+        if (collision.gameObject.name == "Player_Humana")
+        {
+            GetComponent<AudioSource>().Play();
             gameObject.SetActive(false);
-        //  else
-        //      gameObject.SetActive(true);
-        //collision.gameObject.GetComponent<LayerMask>();
+        }
     }
 }

@@ -34,6 +34,7 @@ public class PlayerHumanaController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(HorizontalMove * RunSpeed, rb.velocity.y);
+        GetComponent<Animator>().SetFloat("Speed", Mathf.Abs(HorizontalMove * RunSpeed));
     }
 
     private void GetInput()

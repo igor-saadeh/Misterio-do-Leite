@@ -14,7 +14,6 @@ public class PlayerGatoController : MonoBehaviour
     [SerializeField] private Transform GroundCheck;
     //[SerializeField] private Transform CeilingCheck;
     [SerializeField] private LayerMask GroundLayer;
-    [SerializeField] private BoxCollider2D bc;
     
 
     // Start is called before the first frame update
@@ -47,6 +46,11 @@ public class PlayerGatoController : MonoBehaviour
             GetComponent<Animator>().SetFloat("Speed", Mathf.Abs(HorizontalMove * RunSpeed));
 
         }
+    }
+
+    public bool IsUsingStairs()
+    {
+        return Input.GetKeyUp(KeyCode.W);
     }
 
     private bool IsGrounded()

@@ -52,7 +52,7 @@ public class PlayerSwitch : MonoBehaviour
         {
             PlayerG.GetComponent<PlayerGatoController>().enabled = false;
 
-            PlayerG.GetComponent<BoxCollider2D>().enabled = false;
+            //PlayerG.GetComponent<BoxCollider2D>().enabled = false;
             PlayerG.GetComponent<CircleCollider2D>().enabled = false;
             PlayerG.GetComponent<Rigidbody2D>().Sleep();
 
@@ -71,7 +71,7 @@ public class PlayerSwitch : MonoBehaviour
             PlayerH.GetComponent<Rigidbody2D>().Sleep();
 
             PlayerG.GetComponent<PlayerGatoController>().enabled = true;
-            PlayerG.GetComponent<BoxCollider2D>().enabled = true;
+           // PlayerG.GetComponent<BoxCollider2D>().enabled = true;
             PlayerG.GetComponent<CircleCollider2D>().enabled = true;
 
             PlayerGatoActive = true;

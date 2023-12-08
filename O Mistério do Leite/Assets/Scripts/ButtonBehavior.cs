@@ -6,26 +6,23 @@ public class ButtonBehavior : MonoBehaviour
 {
     [SerializeField] private GameObject Door;
     [SerializeField] private GameObject Window;
-    
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    [SerializeField] private Sprite DoorOpened;
+    private bool isEnabled = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("PlayerHumana") || collision.gameObject.CompareTag("PlayerGato"))
+        if (collision.gameObject.CompareTag("PlayerHumana") || collision.gameObject.CompareTag("PlayerGato") && !isEnabled)
         {
-            Door.SetActive(false);
+            isEnabled = true;
+            GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
+            //Door.SetActive(false);
             Window.SetActive(false);
+
+            Door.GetComponent<AudioSource>().Play();
+            //gameObject.SetActive(false);
+            Door.GetComponent<BoxCollider2D>().enabled = false;
+            Door.GetComponent<SpriteRenderer>().sprite = DoorOpened;
+
         }  
     }
 
